@@ -442,6 +442,7 @@ angular.module('superlogin', [])
             if(res.data.token && res.data.expires) {
               session.expires = res.data.expires;
               session.token = res.data.token;
+              session.userDBs = res.data.userDBs;
               superloginSession.setSession(session);
               $rootScope.$broadcast('sl:refresh', session);
               return $q.when(session);
